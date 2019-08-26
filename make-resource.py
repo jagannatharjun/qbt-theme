@@ -8,7 +8,7 @@ import fnmatch
 parser = argparse.ArgumentParser(description='helper to create qbtthemes')
 parser.add_argument('-o', '--output', type=str, help='output qbtheme file', default='style.qbtheme')
 parser.add_argument('-s', '--style', type=str, help='stylesheet', required=True)
-parser.add_argument('-e', '--exclude', type=str, help='files to ignore')
+parser.add_argument('-e', '--exclude', type=str, default='*.qrc', help='files to ignore')
 parser.add_argument('files', metavar='file', type=str,
                     nargs='*', help='files for icons, supports glob patterns')
 args = parser.parse_args()

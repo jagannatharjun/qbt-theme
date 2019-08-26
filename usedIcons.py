@@ -12,7 +12,6 @@ with open(iconConfigPath, 'r') as f:
 
 imap = json.loads(jsons)
 ext = ['.svg', '.png']
-
 for v in imap.values():
     iconPath = iconDir + v
     if  len(os.path.splitext(iconPath)[1]) == 0:

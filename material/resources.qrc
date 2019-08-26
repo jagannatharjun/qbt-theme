@@ -1,12 +1,11 @@
 <!DOCTYPE RCC><RCC version="1.0">
 	<qresource>
 		<file>loading.svg</file>
-		<file>make-resource.py</file>
-		<file>resources.qrc</file>
 		<file>slow.svg</file>
 		<file>slow_off.svg</file>
 		<file>sphere.svg</file>
 		<file>sphere2.svg</file>
+		<file>style.qbtheme</file>
 		<file>stylesheet.qss</file>
 		<file>icons\iconconfig.json</file>
 		<file>icons\qbt-theme\application-exit.svg</file>
