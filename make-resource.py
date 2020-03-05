@@ -5,8 +5,8 @@ import os.path
 import sys
 import fnmatch
 
-parser = argparse.ArgumentParser(description='helper to create qbtthemes')
-parser.add_argument('-o', '--output', type=str, help='output qbtheme file', default='style.qbtheme')
+parser = argparse.ArgumentParser(description='Tool to crate .qbttheme files for qBittorrent.')
+parser.add_argument('-o', '--output', type=str, help='Name of the output .qbtheme file', default='style.qbtheme')
 parser.add_argument('-s', '--style', type=str, help='stylesheet', required=True)
 parser.add_argument('-e', '--exclude', type=str, default='*.qrc', help='files to ignore')
 parser.add_argument('files', metavar='file', type=str,
@@ -14,7 +14,6 @@ parser.add_argument('files', metavar='file', type=str,
 args = parser.parse_args()
 
 args.exclude = args.exclude.split(',')
-print(args.exclude)
 
 def allFiles(glob):
     [dir, pattern] = os.path.split(glob)
@@ -26,7 +25,7 @@ def allFiles(glob):
 if len(args.output) > 0 and not args.output.endswith('.qbtheme'):
     args.output += '.qbtheme'
 if not len(args.output) or os.path.exists(args.output):
-    if input('"{}" already exists, Do you want to overwrite?(y,n)'.format(args.output)) == 'n':
+    if input('"{}" already exists. Do you want to overwrite? (y,n) '.format(args.output)) == 'n':
         exit()
 
 #ResourceFiles = ['\t\t<file>' + x + '</file>\n' for  x in [z for z in [allFiles(y) for y in args.files]]]
