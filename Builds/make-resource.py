@@ -24,11 +24,12 @@ parser.add_argument('files', metavar='files', type=str,
 
 args = parser.parse_args()
 
+if not args.output.endswith('.qbtheme'):
+    args.output += '.qbtheme'
+
 if os.path.exists(args.output):
     print("WARNING! %s already exists. overwriting" % (args.output))
     
-if not args.output.endswith('.qbtheme'):
-    args.output += '.qbtheme'
 
 files = allFiles(os.path.join(args.baseDir, '*'))
 if args.findFiles:
@@ -63,4 +64,4 @@ cmd = [os.path.join(os.path.dirname(os.path.realpath(__file__)), 'tools/rcc'), '
 print(' '.join(cmd))
 subprocess.call(cmd)
 
-#os.remove('resources.qrc')
+os.remove('resources.qrc')
