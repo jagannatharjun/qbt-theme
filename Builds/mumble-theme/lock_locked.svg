@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" version="1.0">
+  <g font-size="12" font-weight="400" font-family="Bitstream Vera Sans" stroke="red">
+    <path fill="none" stroke-width="19.811" stroke-linejoin="round" d="M36.957 116.577h173.367v117.17H36.957z" transform="matrix(1.39934 0 0 1.29476 -23.015 -20.252)"/>
+    <path d="M66.619 116.22s-.132-33.528 0-49.19c0-50.064 114.102-50.707 114.102 0v49.173" fill="none" stroke-width="19.811" transform="matrix(1.39934 0 0 1.29476 -23.015 -20.252)"/>
+    <g transform="matrix(2.09626 0 0 1.93959 -100.274 -161.49)" fill="red">
+      <ellipse cx="119.391" cy="176.128" rx="6.978" ry="7.541" stroke-width="10.746" stroke-linejoin="round"/>
+      <path d="M112.19 180.383l.13 28.275h15.572l-1.09-27.428" stroke-width=".806"/>
+    </g>
+  </g>
+</svg>
