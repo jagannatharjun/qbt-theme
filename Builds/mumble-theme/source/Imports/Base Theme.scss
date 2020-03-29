@@ -4,38 +4,27 @@
  * See project README
  *
  */
-ApplicationPalette {
-	qproperty-window: $base-bg;
-	qproperty-windowtext: $base-text;
-	qproperty-windowtext_disabled: $base-text-disabled;
 
-	qproperty-base: $sub-bg;
-	qproperty-alternatebase: $median-bg;
-	qproperty-text: $sub-text;
-	qproperty-text_disabled: $base-text-disabled;
-
-	qproperty-tooltipbase: $sub-bg;
-	qproperty-tooltiptext: $sub-text;
-	qproperty-tooltiptext_disabled: $base-text-disabled;
-
-	qproperty-brighttext: $highlight-text;
-	qproperty-brighttext_disabled: $base-text-disabled;
-	qproperty-highlight: $highlight-bg;
-	qproperty-highlightedtext: $highlight-text;
-	qproperty-highlightedtext_disabled: $base-text-disabled;
-
-	qproperty-button: $button-bg;
-	qproperty-buttontext: $sub-text;
-	qproperty-buttontext_disabled: $base-text-disabled;
-
-	qproperty-link: $link;
-	qproperty-linkvisited: $link;
-
-	qproperty-light: $base-border;
-	qproperty-midlight: transparent;
-	qproperty-mid: $base-border;
-	qproperty-dark: transparent;
-	qproperty-shadow: $base-border;
+TransferListWidget {
+	qproperty-downloadingStateForeground: rgb(50,205,50);
+	qproperty-forcedDownloadingStateForeground: rgb(50,205,50);
+	qproperty-downloadingMetadataStateForeground: rgb(50,205,50);
+	qproperty-allocatingStateForeground: rgb(204,204,204);
+	qproperty-stalledDownloadingStateForeground: rgb(204,204,204);
+	qproperty-stalledUploadingStateForeground: rgb(204,204,204);
+	qproperty-uploadingStateForeground: rgb(99,184,255);
+	qproperty-forcedUploadingStateForeground: rgb(99,184,255);
+	qproperty-pausedDownloadingStateForeground: rgb(250,128,144);
+	qproperty-pausedUploadingStateForeground: rgb(79,148,205);
+	qproperty-errorStateForeground: rgb(255, 0, 0);
+	qproperty-missingFilesStateForeground: rgb(255, 0, 0);
+	qproperty-queuedDownloadingStateForeground: rgb(0, 205, 205);
+	qproperty-queuedUploadingStateForeground: rgb(0, 205, 205);
+	qproperty-checkingDownloadingStateForeground: rgb(0, 205, 205);
+	qproperty-checkingUploadingStateForeground: rgb(0, 205, 205);
+	qproperty-checkingResumeDataStateForeground: rgb(0, 205, 205);
+	qproperty-movingStateForeground: rgb(0, 205, 205);
+	qproperty-unknownStateForeground: rgb(255, 0, 0);
 }
 
 QObject,
@@ -46,7 +35,6 @@ QObject::tab,
 QObject::section
 {
 	font-family: $font-family;
-	font-size: $font-size-normal;
 	margin:0;
 	padding:0;
 	outline:0;
@@ -71,6 +59,10 @@ QCalendarWidget *,
 {
 	background-color:$dialog-bg;
 	color:$sub-text;
+}
+
+QAbstractScrollArea {
+	background-color: $base-bg;
 }
 
 QObject:disabled,
@@ -98,7 +90,7 @@ QObject::separator:hover
 
 DockTitleBar
 {
-	font-size: $font-size-extra-small;
+	
 }
 
 QToolTip,
@@ -171,19 +163,19 @@ QToolButton#qt_toolbar_ext_button
 	min-width:$base-padding*2;
 	width:$base-padding*2;
 	padding:1px;
-	qproperty-icon:url(skin:controls/toolbar_ext.svg);
+	qproperty-icon:url(:/uitheme/controls/toolbar_ext.svg);
 }
 
 QToolBar::handle:horizontal
 {
-	image:url(skin:controls/handle_horizontal.svg);
+	image:url(:/uitheme/controls/handle_horizontal.svg);
 	width:8px;
 	padding:$base-padding;
 }
 
 QToolBar::handle:vertical
 {
-	image:url(skin:controls/handle_vertical.svg);
+	image:url(:/uitheme/controls/handle_vertical.svg);
 	height:8px;
 	padding:$base-padding;
 }
@@ -252,7 +244,7 @@ QPushButton
 	background-color:$button-bg;
 	border:$button-border;
 	color:$sub-text;
-	font-size: $font-size-big;
+	
 	padding: $base-padding - 1 $base-padding*4+4;
 }
 
@@ -293,7 +285,7 @@ QGroupBox,
 	background-color:$median-bg;
 	border:1px solid $base-border;
 	color:$sub-text;
-	font-size: $font-size-bigger;
+	
 	padding:$base-padding;
 	padding-top:1em;
 }
@@ -434,23 +426,23 @@ QTreeView::branch
 
 QTreeView::branch:has-children:closed
 {
-	image:url(skin:controls/branch_closed.svg);
+	image:url(:/uitheme/controls/branch_closed.svg);
 }
 
 QTreeView::branch:has-children:open
 {
-	image:url(skin:controls/branch_open.svg);
+	image:url(:/uitheme/controls/branch_open.svg);
 }
 
 QHeaderView
 {
 	border-bottom:1px solid $base-border;
 	border-radius:0;
+	background-color: $base-bg;
 }
 
 QHeaderView::section
 {
-	border:0;
 	background-color:$median-bg;
 	color:$sub-text;
 	padding:$base-padding;
@@ -470,12 +462,12 @@ QHeaderView::up-arrow
 
 QHeaderView::down-arrow
 {
-	image:url(skin:controls/arrow_down.svg);
+	image:url(:/uitheme/controls/arrow_down.svg);
 }
 
 QHeaderView::up-arrow
 {
-	image:url(skin:controls/arrow_up.svg);
+	image:url(:/uitheme/controls/arrow_up.svg);
 }
 
 QTabWidget::pane
@@ -491,6 +483,19 @@ QTabWidget::pane:top
 	border-top-left-radius:0;
 }
 
+QTabWidget::pane:right
+{
+	margin-right:-1px;
+	border-radius:$base-border-radius;
+	border-top-left-radius:0;
+}
+
+QTabWidget::pane:left
+{
+	margin-left:-1px;
+	border-radius:$base-border-radius;
+	border-top-left-radius:0;
+}
 
 QTabWidget::pane:bottom
 {
@@ -542,6 +547,20 @@ QTabBar::tab:top
 	margin-bottom:1px;
 }
 
+
+QTabBar::tab:right
+{
+	border-left:0;
+	margin-left:1px;
+}
+
+
+QTabBar::tab:left
+{
+	border-right:0;
+	margin-right:1px;
+}
+
 QTabBar::tab:bottom
 {
 	border-top:0;
@@ -552,6 +571,18 @@ QTabBar::tab:top:selected
 {
 	padding-bottom:$base-padding * 1.5 + 1;
 	margin-bottom:0;
+}
+
+QTabBar::tab:right:selected
+{
+	padding-left:$base-padding * 1.5 + 1;
+	margin-left:0;
+}
+
+QTabBar::tab:left:selected
+{
+	padding-right:$base-padding * 1.5 + 1;
+	margin-right:0;
 }
 
 QTabBar::tab:bottom:selected
@@ -587,7 +618,6 @@ QTabBar::tab:bottom:only-one
 QScrollBar
 {
 	border-radius:0;
-	font-size: $font-size-normal;
 }
 
 QScrollBar:vertical
@@ -718,14 +748,14 @@ QComboBox::down-arrow,
 QDateTimeEdit::down-arrow
 {
 	margin-top: -2px;
-	image:url(skin:controls/arrow_down.svg);
+	image:url(:/uitheme/controls/arrow_down.svg);
 	width:14px;
 }
 
 QComboBox::down-arrow:disabled,
 QDateTimeEdit::down-arrow:disabled
 {
-	image:url(skin:controls/arrow_down_disabled.svg);
+	image:url(:/uitheme/controls/arrow_down_disabled.svg);
 }
 
 QToolButton[popupMode="1"],
@@ -741,7 +771,7 @@ QToolButton::menu-indicator,
 QPushButton::menu-arrow,
 QPushButton::menu-indicator
 {
-	image:url(skin:controls/arrow_down.svg);
+	image:url(:/uitheme/controls/arrow_down.svg);
 	subcontrol-origin: padding;
 	subcontrol-position: center right;
 	top:2px;
@@ -753,7 +783,7 @@ QSpinBox::down-button,
 QAbstractSpinBox::down-button,
 {
 	padding-right:4px;
-	image:url(skin:controls/arrow_down.svg);
+	image:url(:/uitheme/controls/arrow_down.svg);
 	width:14px;
 	padding-bottom:1px;
 }
@@ -761,14 +791,14 @@ QAbstractSpinBox::down-button,
 QSpinBox::down-button:disabled,
 QAbstractSpinBox::down-button:disabled,
 {
-	image:url(skin:controls/arrow_down_disabled.svg);
+	image:url(:/uitheme/controls/arrow_down_disabled.svg);
 }
 
 QSpinBox::up-button,
 QAbstractSpinBox::up-button
 {
 	padding-right:4px;
-	image:url(skin:controls/arrow_up.svg);
+	image:url(:/uitheme/controls/arrow_up.svg);
 	width:14px;
 	padding-top:1px;
 }
@@ -776,7 +806,7 @@ QAbstractSpinBox::up-button
 QSpinBox::up-button:disabled,
 QAbstractSpinBox::up-button:disabled,
 {
-	image:url(skin:controls/arrow_up_disabled.svg);
+	image:url(:/uitheme/controls/arrow_up_disabled.svg);
 }
 
 QComboBox QAbstractItemView
@@ -791,6 +821,7 @@ QLabel,
 QCheckBox,
 QAbstractCheckBox,
 QTreeView::indicator,
+QGroupBox::indicator,
 QRadioButton
 {
 	color:$sub-text;
@@ -799,6 +830,7 @@ QRadioButton
 
 QCheckBox::indicator,
 QTreeView::indicator,
+QGroupBox::indicator
 {
 	background-color:$button-bg;
 	border:$button-border;
@@ -815,20 +847,23 @@ QMenu::indicator
 
 QCheckBox::indicator:checked,
 QMenu::indicator:checked,
-QTreeView::indicator:checked
+QTreeView::indicator:checked,
+QGroupBox::indicator:checked
 {
 	image:$checkbox;
 }
 
 QCheckBox::indicator:disabled,
-QTreeView::indicator:disabled
+QTreeView::indicator:disabled,
+QGroupBox::indicator:disabled
 {
 	border:1px solid $median-bg;
 	background-color:$control-disabled;
 }
 
 QCheckBox::indicator:checked:disabled,
-QTreeView::indicator:checked:disabled
+QTreeView::indicator:checked:disabled,
+QGroupBox::indicator:checked:disabled
 {
 	border:1px solid transparent;
 	image:$checkbox-disabled;
@@ -870,7 +905,7 @@ QSlider::groove
 	background:$slider-groove;
 	border:1px solid $slider-groove-border;
 	border-radius:2px;
-	font-size: $font-size-qslider-groove;
+	
 }
 
 QSlider::groove:horizontal
@@ -903,7 +938,7 @@ QSlider::handle
 	background:$slider-handle;
 	border:1px solid $slider-handle-border;
 	border-radius:3px;
-	font-size: $font-size-qslider-handle;
+	
 }
 
 QSlider::handle:horizontal
@@ -944,6 +979,7 @@ QSlider::handle:disabled
 QCheckBox::indicator:focus,
 QTreeView::indicator:focus,
 QRadioButton::indicator:focus,
+QGroupBox::indicator:focus,
 QComboBox:focus
 {
 	background-color:$button-focus;
@@ -952,6 +988,7 @@ QComboBox:focus
 QCheckBox::indicator:focus:hover,
 QTreeView::indicator:focus:hover,
 QRadioButton::indicator:focus:hover,
+QGroupBox::indicator:focus:hover,
 QComboBox:focus:hover
 {
 	background-color:$button-focus-hover-bg;
@@ -961,6 +998,7 @@ QComboBox:focus:hover
 QCheckBox::indicator:hover,
 QTreeView::indicator:hover,
 QRadioButton::indicator:hover,
+QGroupBox::indicator:hover,
 QComboBox:hover
 {
 	background-color:$button-hover;
@@ -995,6 +1033,7 @@ QComboBox:editable:hover
 QCheckBox::indicator:focus,
 QTreeView::indicator:focus,
 QRadioButton::indicator:focus,
+QGroupBox::indicator:focus,
 QComboBox:focus,
 QLineEdit:focus,
 QTextEdit:focus,
@@ -1052,19 +1091,19 @@ UserView::item
 	padding:-2px;
 	margin:0 2px;
 	margin-bottom:2px;
-	font-size: $font-size-normal;
+	
 }
 
 #qtIconToolbar QComboBox
 {
-	font-size: $font-size-small;
+	
 }
 
 .log-time
 {
 	background-color:transparent;
 	color:#95a5a6;
-	font-size: $font-size-medium;
+	
 }
 
 .log-server
@@ -1107,7 +1146,7 @@ QListView#qlwIcons
 	padding:0;
 	background-color:transparent;
 	border:0;
-	font-size: $font-size-big;
+	
 	min-width:165%;
 	margin-left:$base-padding;
 	margin-top:$base-padding + 8;
@@ -1166,7 +1205,7 @@ QTreeView::item QLineEdit
 	padding-bottom: 0;
 	padding-left: $base-padding;
 	padding-right: $base-padding;
-	font-size: $font-size-medium;
+	
 }
 
 QListView::item QListWidgetItem:hover,
