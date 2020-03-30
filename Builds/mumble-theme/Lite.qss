@@ -628,7 +628,7 @@ QCheckBox::indicator:checked,
 QMenu::indicator:checked,
 QTreeView::indicator:checked,
 QGroupBox::indicator:checked {
-  image: url(skin:controls/checkbox_check_lite.svg); }
+  image: url(:/uitheme/controls/checkbox_check_lite.svg); }
 
 QCheckBox::indicator:disabled,
 QTreeView::indicator:disabled,
@@ -640,7 +640,7 @@ QCheckBox::indicator:checked:disabled,
 QTreeView::indicator:checked:disabled,
 QGroupBox::indicator:checked:disabled {
   border: 1px solid transparent;
-  image: url(skin:controls/checkbox_check_disabled.svg); }
+  image: url(:/uitheme/controls/checkbox_check_disabled.svg); }
 
 QRadioButton::indicator {
   background: #FFF;
@@ -658,10 +658,10 @@ QRadioButton::indicator:disabled {
   border: 1px solid transparent; }
 
 QRadioButton::indicator:checked {
-  image: url(skin:controls/radio_check_lite.svg); }
+  image: url(:/uitheme/controls/radio_check_lite.svg); }
 
 QRadioButton::indicator:checked:disabled {
-  image: url(skin:controls/radio_check_disabled.svg); }
+  image: url(:/uitheme/controls/radio_check_disabled.svg); }
 
 QSlider::groove {
   background: #F8F8F8;
