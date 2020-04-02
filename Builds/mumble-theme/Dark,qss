@@ -120,11 +120,11 @@ QToolButton:on {
   border: 1px solid #444; }
 
 QToolButton:hover {
-  background-color: #298ce1;
-  border: 1px solid #1979ca; }
+  background-color: #3e4f5e;
+  border: 1px solid #3e4f5e; }
 
 QToolButton:pressed {
-  background-color: #298ce1; }
+  background-color: #484848; }
 
 QToolBar::separator {
   background: #555;

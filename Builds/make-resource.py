@@ -51,7 +51,7 @@ for f in files:
 
 with open('resources.qrc', 'w') as rcc:
     rcc.write('<!DOCTYPE RCC><RCC version="1.0">\n')
-    rcc.write('\t<qresource %s>\n' % (args.dirPrefix if 'prefix=\'' + args.dirPrefix + '\'' else ''))
+    rcc.write('\t<qresource %s>\n' % ('prefix=\'' + args.dirPrefix + '\'' if args.dirPrefix else ''))
     rcc.writelines(['\t\t<file alias=\'%s\'>%s</file>\n' % x for x in ResourceFiles])
     rcc.write('\t</qresource>\n')
     rcc.write('\t<qresource>\n')
@@ -62,6 +62,6 @@ with open('resources.qrc', 'w') as rcc:
 
 cmd = [os.path.join(os.path.dirname(os.path.realpath(__file__)), 'tools/rcc'), '-binary', '-o', args.output, 'resources.qrc']
 print(' '.join(cmd))
-subprocess.call(cmd)
 
-os.remove('resources.qrc')
+if not subprocess.call(cmd):
+    os.remove('resources.qrc')

@@ -36,6 +36,13 @@ TransferListWidget {
   qproperty-movingStateForeground: #00cdcd;
   qproperty-unknownStateForeground: red; }
 
+QTabWidget QListView::item {
+  padding: 0px; }
+
+QTabWidget QListView QLabel {
+  padding: -2px;
+  font-size: 1em; }
+
 QObject,
 QObject::separator,
 QObject::handle,
