@@ -20,4 +20,27 @@
 // Import base theme CSS
 @import 'Imports/Base Theme';
 
+
+TransferListWidget {
+	qproperty-downloadingStateForeground: rgb(50,205,50);
+	qproperty-forcedDownloadingStateForeground: rgb(50,205,50);
+	qproperty-downloadingMetadataStateForeground: rgb(50,205,50);
+	qproperty-allocatingStateForeground: rgb(204,204,204);
+	qproperty-stalledDownloadingStateForeground: rgb(204,204,204);
+	qproperty-stalledUploadingStateForeground: rgb(204,204,204);
+	qproperty-uploadingStateForeground: rgb(99,184,255);
+	qproperty-forcedUploadingStateForeground: rgb(99,184,255);
+	qproperty-pausedDownloadingStateForeground: rgb(250,128,144);
+	qproperty-pausedUploadingStateForeground: rgb(79,148,205);
+	qproperty-errorStateForeground: rgb(255, 0, 0);
+	qproperty-missingFilesStateForeground: rgb(255, 0, 0);
+	qproperty-queuedDownloadingStateForeground: rgb(0, 205, 205);
+	qproperty-queuedUploadingStateForeground: rgb(0, 205, 205);
+	qproperty-checkingDownloadingStateForeground: rgb(0, 205, 205);
+	qproperty-checkingUploadingStateForeground: rgb(0, 205, 205);
+	qproperty-checkingResumeDataStateForeground: rgb(0, 205, 205);
+	qproperty-movingStateForeground: rgb(0, 205, 205);
+	qproperty-unknownStateForeground: rgb(255, 0, 0);
+}
+
 // Add or import your own custom QSS below

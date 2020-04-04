@@ -85,6 +85,13 @@ TransferListWidget {
 	qproperty-unknownStateForeground: rgb(255, 0, 0);
 }
 
+QTabWidget QListView::item {
+  padding: 0px; }
+
+QTabWidget QListView QLabel {
+  padding: -2px;
+  font-size: 1.1em;
+  background: transparent; }
 
 QWidget {
   background-color: #19232D;
@@ -527,8 +534,6 @@ QAbstractScrollArea {
   border: 1px solid #32414B;
   border-radius: 4px;
   padding: 2px;
-  /* fix #159 */
-  min-height: 1.25em;
   /* fix #159 */
   color: #F0F0F0;
 }
@@ -1778,37 +1783,41 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qlistview
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtableview
 
 --------------------------------------------------------------------------- */
-QTreeView:branch:selected, QTreeView:branch:hover {
+QTreeView:branch:selected, QTreeView:branch:hover, QCheckBox:branch:selected, QCheckBox:branch:hover  {
   background: url(":/uitheme/qss_icons/rc/transparent.png");
 }
 
-QTreeView:branch:has-siblings:!adjoins-item {
+QTreeView:branch:has-siblings:!adjoins-item, QCheckBox:branch:has-siblings:!adjoins-item {
   border-image: url(":/uitheme/qss_icons/rc/branch_line.png") 0;
 }
 
-QTreeView:branch:has-siblings:adjoins-item {
+QTreeView:branch:has-siblings:adjoins-item, QCheckBox:branch:has-siblings:adjoins-item {
   border-image: url(":/uitheme/qss_icons/rc/branch_more.png") 0;
 }
 
-QTreeView:branch:!has-children:!has-siblings:adjoins-item {
+QTreeView:branch:!has-children:!has-siblings:adjoins-item, QCheckBox:branch:!has-children:!has-siblings:adjoins-item {
   border-image: url(":/uitheme/qss_icons/rc/branch_end.png") 0;
 }
 
-QTreeView:branch:has-children:!has-siblings:closed, QTreeView:branch:closed:has-children:has-siblings {
+QTreeView:branch:has-children:!has-siblings:closed, QTreeView:branch:closed:has-children:has-siblings,
+QCheckBox:branch:has-children:!has-siblings:closed, QCheckBox:branch:closed:has-children:has-siblings {
   border-image: none;
   image: url(":/uitheme/qss_icons/rc/branch_closed.png");
 }
 
-QTreeView:branch:open:has-children:!has-siblings, QTreeView:branch:open:has-children:has-siblings {
+QTreeView:branch:open:has-children:!has-siblings, QTreeView:branch:open:has-children:has-siblings,
+QCheckBox:branch:open:has-children:!has-siblings, QCheckBox:branch:open:has-children:has-siblings {
   border-image: none;
   image: url(":/uitheme/qss_icons/rc/branch_open.png");
 }
 
-QTreeView:branch:has-children:!has-siblings:closed:hover, QTreeView:branch:closed:has-children:has-siblings:hover {
+QTreeView:branch:has-children:!has-siblings:closed:hover, QTreeView:branch:closed:has-children:has-siblings:hover,
+QCheckBox:branch:has-children:!has-siblings:closed:hover, QCheckBox:branch:closed:has-children:has-siblings:hover {
   image: url(":/uitheme/qss_icons/rc/branch_closed_focus.png");
 }
 
-QTreeView:branch:open:has-children:!has-siblings:hover, QTreeView:branch:open:has-children:has-siblings:hover {
+QTreeView:branch:open:has-children:!has-siblings:hover, QTreeView:branch:open:has-children:has-siblings:hover,
+QCheckBox:branch:open:has-children:!has-siblings:hover, QCheckBox:branch:open:has-children:has-siblings:hover {
   image: url(":/uitheme/qss_icons/rc/branch_open_focus.png");
 }
 
@@ -1905,13 +1914,20 @@ QColumnView::item:selected:active {
   background-color: #1464A0;
 }
 
-QTreeView::item:!selected:hover,
-QListView::item:!selected:hover,
-QTableView::item:!selected:hover,
-QColumnView::item:!selected:hover {
+QTreeView::item:hover,
+QListView::item:hover,
+QTableView::item:hover,
+QColumnView::item:hover {
   outline: 0;
   color: #148CD2;
   background-color: #32414B;
+}
+
+QTreeView::item,
+QListView::item,
+QTableView::item,
+QColumnView::item {
+  color: #F0F0F0;
 }
 
 QTableCornerButton::section {

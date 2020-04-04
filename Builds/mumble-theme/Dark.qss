@@ -15,33 +15,12 @@
  * See project README
  *
  */
-TransferListWidget {
-  qproperty-downloadingStateForeground: limegreen;
-  qproperty-forcedDownloadingStateForeground: limegreen;
-  qproperty-downloadingMetadataStateForeground: limegreen;
-  qproperty-allocatingStateForeground: #cccccc;
-  qproperty-stalledDownloadingStateForeground: #cccccc;
-  qproperty-stalledUploadingStateForeground: #cccccc;
-  qproperty-uploadingStateForeground: #63b8ff;
-  qproperty-forcedUploadingStateForeground: #63b8ff;
-  qproperty-pausedDownloadingStateForeground: #fa8090;
-  qproperty-pausedUploadingStateForeground: #4f94cd;
-  qproperty-errorStateForeground: red;
-  qproperty-missingFilesStateForeground: red;
-  qproperty-queuedDownloadingStateForeground: #00cdcd;
-  qproperty-queuedUploadingStateForeground: #00cdcd;
-  qproperty-checkingDownloadingStateForeground: #00cdcd;
-  qproperty-checkingUploadingStateForeground: #00cdcd;
-  qproperty-checkingResumeDataStateForeground: #00cdcd;
-  qproperty-movingStateForeground: #00cdcd;
-  qproperty-unknownStateForeground: red; }
-
 QTabWidget QListView::item {
   padding: 0px; }
 
 QTabWidget QListView QLabel {
   padding: -2px;
-  font-size: 1em; }
+  font-size: 1.1em; }
 
 QObject,
 QObject::separator,
@@ -269,7 +248,6 @@ QTreeView::item {
   border: 1px solid transparent;
   border-left: 0;
   border-right: 0;
-  color: #d8d8d8;
   padding: 2px 4px;
   selection-color: #d8d8d8;
   border-radius: 0; }
@@ -332,13 +310,20 @@ QTreeView::branch:has-children:closed {
 QTreeView::branch:has-children:open {
   image: url(:/uitheme/controls/branch_open.svg); }
 
+QCheckBox::branch:has-children:closed {
+  image: url(:/uitheme/controls/branch_closed.svg); }
+
+QCheckBox::branch:has-children:open {
+  image: url(:/uitheme/controls/branch_open.svg); }
+
 QHeaderView {
   border-bottom: 1px solid #1c1c1c;
   border-radius: 0;
-  background-color: #2e2e2e; }
+  background-color: #2d2d2d; }
 
 QHeaderView::section {
   background-color: #2d2d2d;
+  border-right: 1px solid #1c1c1c;
   color: #d8d8d8;
   padding: 4px;
   padding-left: 8px;
@@ -904,3 +889,24 @@ AboutDialog QTextEdit {
 
 ViewCert {
   min-height: 600px; }
+
+TransferListWidget {
+  qproperty-downloadingStateForeground: limegreen;
+  qproperty-forcedDownloadingStateForeground: limegreen;
+  qproperty-downloadingMetadataStateForeground: limegreen;
+  qproperty-allocatingStateForeground: #cccccc;
+  qproperty-stalledDownloadingStateForeground: #cccccc;
+  qproperty-stalledUploadingStateForeground: #cccccc;
+  qproperty-uploadingStateForeground: #63b8ff;
+  qproperty-forcedUploadingStateForeground: #63b8ff;
+  qproperty-pausedDownloadingStateForeground: #fa8090;
+  qproperty-pausedUploadingStateForeground: #4f94cd;
+  qproperty-errorStateForeground: red;
+  qproperty-missingFilesStateForeground: red;
+  qproperty-queuedDownloadingStateForeground: #00cdcd;
+  qproperty-queuedUploadingStateForeground: #00cdcd;
+  qproperty-checkingDownloadingStateForeground: #00cdcd;
+  qproperty-checkingUploadingStateForeground: #00cdcd;
+  qproperty-checkingResumeDataStateForeground: #00cdcd;
+  qproperty-movingStateForeground: #00cdcd;
+  qproperty-unknownStateForeground: red; }
