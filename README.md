@@ -4,10 +4,13 @@
 ![mumble-dark.qbtheme](https://github.com/jagannatharjun/qbt-theme/blob/master/preview/mumble-dark.JPG)
 # Mumble-Lite.qbtheme
 ![mumble-lite.qbtheme](https://github.com/jagannatharjun/qbt-theme/blob/master/preview/mumble-lite.JPG)
+# Breeze-Dark.qbtheme
+![mumble-lite.qbtheme](https://github.com/jagannatharjun/qbt-theme/blob/master/preview/breeze-dark.JPG)
 
 This repo contains different stylesheed edited to run with qbittorrent's style system  
-DarkStyleSheet is taken from https://github.com/ColinDuquesnoy/QDarkStyleSheet  
-Mumble Dark is taken from https://github.com/mumble-voip/mumble-theme
+DarkStyleSheet theme is based on https://github.com/ColinDuquesnoy/QDarkStyleSheet  
+Mumble themes are based on https://github.com/mumble-voip/mumble-theme
+Breeze themes are based on https://github.com/Alexhuszagh/BreezeStyleSheets
 
 This repo also contains different tool to create your own qbittorrent theme files.
 
