@@ -213,6 +213,9 @@ QGroupBox::title {
   margin-left: 8px;
   margin-right: 8px; }
 
+QAbstractItemView {
+  alternate-background-color: #e0e0e0; }
+
 QListView {
   background-color: #FFF;
   border: 1px solid #D2D2D2; }
@@ -611,6 +614,9 @@ QGroupBox::indicator {
   height: 13px;
   width: 13px;
   margin-top: 1px; }
+
+QTreeView::indicator {
+  margin: .4em; }
 
 QMenu::indicator {
   width: 12px;
