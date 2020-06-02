@@ -17,6 +17,7 @@ parser = argparse.ArgumentParser(description='helper to create qbtthemes')
 parser.add_argument('-output', type=str, help='output qbtheme file', default='style.qbtheme')
 parser.add_argument('-style', type=str, help='stylesheet', required=True)
 parser.add_argument('-base-dir', type=str, dest='baseDir', default='.')
+parser.add_argument('-icons-dir', type=str, dest='iconsDir', default='', help='directory which contains custom icons')
 parser.add_argument('-dir-prefix', type=str, default='', dest='dirPrefix', help='prefix added to all files')
 parser.add_argument('-find-files', action='store_true', dest='findFiles', help='find files included in qss and only include those')
 parser.add_argument('files', metavar='files', type=str,
@@ -48,11 +49,14 @@ for f in files:
             ResourceFiles.append((alias, f))
             print('adding ' + f)
             break
+            
+IconFiles = list() if not args.iconsDir else [f for f in glob.glob(os.path.join(args.iconsDir, '*'))]
 
 with open('resources.qrc', 'w') as rcc:
     rcc.write('<!DOCTYPE RCC><RCC version="1.0">\n')
     rcc.write('\t<qresource %s>\n' % ('prefix=\'' + args.dirPrefix + '\'' if args.dirPrefix else ''))
     rcc.writelines(['\t\t<file alias=\'%s\'>%s</file>\n' % x for x in ResourceFiles])
+    rcc.writelines(['\t\t<file alias=\'icons/%s\'>%s</file>\n' % (os.path.split(x)[1], x) for x in IconFiles])
     rcc.write('\t</qresource>\n')
     rcc.write('\t<qresource>\n')
     rcc.write('\t\t<file alias=\'stylesheet.qss\'>%s</file>\n' % (os.path.join(args.baseDir, args.style)))
