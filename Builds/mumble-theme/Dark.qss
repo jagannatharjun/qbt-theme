@@ -9,11 +9,16 @@
  *
  * Licensed under The Do What The Fuck You Want To Public License (WTFPL)
  */
-/*
- * YOU SHOULD NOT MODIFY THIS FILE
- * Edit the files in the "source" folder instead.
- * See project README
- *
+/*
+
+ * YOU SHOULD NOT MODIFY THIS FILE
+
+ * Edit the files in the "source" folder instead.
+
+ * See project README
+
+ *
+
  */
 QTabWidget QListView::item {
   padding: 0px; }
@@ -897,9 +902,9 @@ ViewCert {
   min-height: 600px; }
 
 TransferListWidget {
-  qproperty-downloadingStateForeground: limegreen;
-  qproperty-forcedDownloadingStateForeground: limegreen;
-  qproperty-downloadingMetadataStateForeground: limegreen;
+  qproperty-downloadingStateForeground: #ebebeb;
+  qproperty-forcedDownloadingStateForeground: #ebebeb;
+  qproperty-downloadingMetadataStateForeground: #ebebeb;
   qproperty-allocatingStateForeground: #cccccc;
   qproperty-stalledDownloadingStateForeground: #cccccc;
   qproperty-stalledUploadingStateForeground: #cccccc;
