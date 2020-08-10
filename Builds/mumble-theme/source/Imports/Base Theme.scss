@@ -28,7 +28,7 @@ QObject::section
 	border:0;
 	selection-background-color:$highlight-bg;
 	selection-color:$highlight-text;
-	alternate-background-color:transparent;
+	alternate-background-color:$alternate-bg;
 	color:$base-text;
 	border-radius:$base-border-radius;
 }

@@ -35,7 +35,7 @@ QObject::section {
   border: 0;
   selection-background-color: #298ce1;
   selection-color: #FFF;
-  alternate-background-color: transparent;
+  alternate-background-color: #292929;
   color: #eee;
   border-radius: 2px; }
 
