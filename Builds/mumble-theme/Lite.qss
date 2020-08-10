@@ -214,7 +214,7 @@ QGroupBox::title {
   margin-right: 8px; }
 
 QAbstractItemView {
-  alternate-background-color: #e0e0e0; }
+  alternate-background-color: #f5f5f5; }
 
 QListView {
   background-color: #FFF;
