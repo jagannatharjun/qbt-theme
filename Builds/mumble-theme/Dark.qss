@@ -223,7 +223,6 @@ QListView {
 QListView::item {
   border-radius: 2px;
   border: 1px solid transparent;
-  color: #d8d8d8;
   selection-color: #d8d8d8;
   padding: 2px 4px; }
 
