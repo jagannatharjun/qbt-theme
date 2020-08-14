@@ -19,6 +19,7 @@ parser.add_argument('-style', type=str, help='stylesheet', required=True)
 parser.add_argument('-base-dir', type=str, dest='baseDir', default='.')
 parser.add_argument('-icons-dir', type=str, dest='iconsDir', default='', help='directory which contains custom icons')
 parser.add_argument('-dir-prefix', type=str, default='', dest='dirPrefix', help='prefix added to all files')
+parser.add_argument('-config', type=str, dest='config', default=None, help='file used as config.json')
 parser.add_argument('-find-files', action='store_true', dest='findFiles', help='find files included in qss and only include those')
 parser.add_argument('files', metavar='files', type=str,
                     nargs='*', default=['*'], help='files to include in resources from baseDir, supports glob patterns')
@@ -40,6 +41,12 @@ if args.findFiles:
     for f in re.findall(':\/uitheme\/(.*)\)', stylesheet):
         args.files.append(f)
     
+config_file = None
+if args.config:
+    if os.path.exists(args.config):
+        config_file = args.config
+    elif os.path.exists(os.path.join(args.baseDir, args.config)):
+        config_file = os.path.join(args.baseDir, args.config)
 
 ResourceFiles = list()
 for f in files:
@@ -60,6 +67,8 @@ with open('resources.qrc', 'w') as rcc:
     rcc.write('\t</qresource>\n')
     rcc.write('\t<qresource>\n')
     rcc.write('\t\t<file alias=\'stylesheet.qss\'>%s</file>\n' % (os.path.join(args.baseDir, args.style)))
+    if config_file:
+        rcc.write('\t\t<file alias=\'config.json\'>%s</file>\n' % (config_file))
     rcc.write('\t</qresource>\n')
     rcc.write('</RCC>')
 
