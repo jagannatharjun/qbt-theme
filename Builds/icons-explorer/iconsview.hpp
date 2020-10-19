@@ -7,13 +7,18 @@ struct ColorPair {
   QColor oldColor, newColor;
 };
 
+struct IconsSet {
+  QString dir;
+  QVector<QColor> colors;
+};
+
 class Worker : public QObject {
   Q_OBJECT
 public:
   using QObject::QObject;
 
 public slots:
-  void doWork(QVector<ColorPair> colorPairs, QString tempPath, QString dir);
+  void doWork(QVector<ColorPair> colorPairs, QString destDir, QString dir);
 
 signals:
   void newItem(QListWidgetItem *item);
@@ -25,6 +30,8 @@ class IconsView : public QListWidget {
 public:
   IconsView(QWidget *parent = nullptr);
   ~IconsView();
+
+  QVector<IconsSet> availableIconsSet() const;
 
   QString iconsDir() const;
   void setIconsDir(const QString &iconsDir);

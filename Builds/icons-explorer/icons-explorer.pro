@@ -11,14 +11,17 @@ CONFIG += c++17
 SOURCES += \
     iconsview.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qbittorrentpreview.cpp
 
 HEADERS += \
     iconsview.hpp \
-    mainwindow.hpp
+    mainwindow.hpp \
+    qbittorrentpreview.hpp
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    qbittorrentpreview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -58,15 +58,16 @@ for f in files:
             break
             
 IconFiles = list() if not args.iconsDir else [f for f in glob.glob(os.path.join(args.iconsDir, '*'))]
+print(IconFiles)
 
 with open('resources.qrc', 'w') as rcc:
     rcc.write('<!DOCTYPE RCC><RCC version="1.0">\n')
     rcc.write('\t<qresource %s>\n' % ('prefix=\'' + args.dirPrefix + '\'' if args.dirPrefix else ''))
     rcc.writelines(['\t\t<file alias=\'%s\'>%s</file>\n' % x for x in ResourceFiles])
-    rcc.writelines(['\t\t<file alias=\'icons/%s\'>%s</file>\n' % (os.path.split(x)[1], x) for x in IconFiles])
     rcc.write('\t</qresource>\n')
     rcc.write('\t<qresource>\n')
     rcc.write('\t\t<file alias=\'stylesheet.qss\'>%s</file>\n' % (os.path.join(args.baseDir, args.style)))
+    rcc.writelines(['\t\t<file alias=\'icons\\%s\'>%s</file>\n' % (os.path.split(x)[1], x) for x in IconFiles])
     if config_file:
         rcc.write('\t\t<file alias=\'config.json\'>%s</file>\n' % (config_file))
     rcc.write('\t</qresource>\n')

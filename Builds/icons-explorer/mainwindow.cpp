@@ -11,7 +11,8 @@ QByteArray readAll(const QString &filePath);
 
 class ColorEdit : public QLineEdit {
 public:
-  ColorEdit(QWidget *parent = nullptr)
+  ColorEdit(QColor initialColor = {}, bool readOnly = false,
+            QWidget *parent = nullptr)
       : QLineEdit(parent), m_colorPixmap(QSize(18, 18)) {
     setTextMargins(20, 1, 1, 1);
     connect(this, &QLineEdit::textChanged, this, [this](const QString text) {
@@ -22,15 +23,20 @@ public:
         setPalette(QPalette());
       m_colorPixmap.fill(color);
     });
+    if (initialColor.isValid())
+      setText(initialColor.name());
 
-    QAction *colorDiag =
-        addAction(QIcon("://color-dropper.png"), QLineEdit::TrailingPosition);
-    connect(colorDiag, &QAction::triggered, this, [this](bool) {
-      QColor newColor =
-          QColorDialog::getColor(QColor(text()), this, "Choose Color");
-      if (newColor.isValid())
-        setText(newColor.name());
-    });
+    if (!readOnly) {
+      QAction *colorDiag =
+          addAction(QIcon("://color-dropper.png"), QLineEdit::TrailingPosition);
+      connect(colorDiag, &QAction::triggered, this, [this](bool) {
+        QColor newColor =
+            QColorDialog::getColor(QColor(text()), this, "Choose Color");
+        if (newColor.isValid())
+          setText(newColor.name());
+      });
+      setReadOnly(readOnly);
+    }
   }
 
   QColor color() { return QColor(text()); }
@@ -59,44 +65,74 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
   ui->setupUi(this);
   on_iconsView_loadingChanged();
-  ui->iconsDirEdit->setText(ui->iconsView->iconsDir());
+  for (const auto &iconSet : ui->iconsView->availableIconsSet()) {
+    ui->iconsDirCombo->addItem(iconSet.dir,
+                               QVariant::fromValue(iconSet.colors));
+  }
+
+  auto styleSheetBrowseIcon = ui->stylesheetEdit->addAction(style()->standardIcon(QStyle::SP_DirOpenIcon), QLineEdit::TrailingPosition);
+  connect(styleSheetBrowseIcon, &QAction::triggered, this, [this]() {
+    const QString styleSheet = QFileDialog::getOpenFileName(this, "Open StyleSheet", {}, "*.qss");
+    if (styleSheet.isEmpty())
+      return;
+    QFile f(styleSheet);
+    if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+      return;
+    qApp->setStyleSheet(f.readAll());
+  });
 }
 
 MainWindow::~MainWindow() { delete ui; }
 
-void MainWindow::on_new_row_clicked() {
-  const int row = ui->colorTable->rowCount();
-  ui->colorTable->setRowCount(row + 1);
-  ui->colorTable->setCellWidget(row, 0, new ColorEdit(this));
-  ui->colorTable->setCellWidget(row, 1, new ColorEdit(this));
-}
-
 void MainWindow::on_applyColors_clicked() {
   QVector<ColorPair> colorPairs;
   for (int i = 0; i < ui->colorTable->rowCount(); i++) {
-    colorPairs.push_back(
-        {dynamic_cast<ColorEdit *>(ui->colorTable->cellWidget(i, 0))->color(),
-         dynamic_cast<ColorEdit *>(ui->colorTable->cellWidget(i, 1))->color()});
+    const auto oldColor =
+        dynamic_cast<ColorEdit *>(ui->colorTable->cellWidget(i, 1))->color();
+    const auto newColor =
+        dynamic_cast<ColorEdit *>(ui->colorTable->cellWidget(i, 0))->color();
+    if (!oldColor.isValid() || !newColor.isValid())
+      continue;
+    colorPairs.push_back({newColor, oldColor});
   }
   ui->iconsView->setColorPairs(colorPairs);
 }
 
 void MainWindow::on_iconsView_currentItemChanged(QListWidgetItem *,
                                                  QListWidgetItem *) {
-  ui->contentView->setText(readAll(ui->iconsView->currentFilePath()));
-}
-
-void MainWindow::on_pushButton_clicked() {
-  const QString dir = QFileDialog::getExistingDirectory(
-      this, "Browse Icons", ui->iconsView->iconsDir());
-  if (!dir.isEmpty()) {
-    ui->iconsView->setIconsDir(dir);
-    ui->iconsDirEdit->setText(ui->iconsView->iconsDir());
-  }
+  setPreview();
 }
 
 void MainWindow::on_iconsView_loadingChanged() {
   bool loading = ui->iconsView->loading();
   ui->folderGroup->setEnabled(!loading);
   ui->colorGroup->setEnabled(!loading);
+}
+
+void MainWindow::on_showPicture_toggled(bool checked) { setPreview(); }
+
+void MainWindow::setPreview() {
+  const QFileInfo f = ui->iconsView->currentFilePath();
+  if (ui->showPicture->isChecked()) {
+    ui->contentView->setText(
+        QString("<img src=\"%1\" alt='failure' width=128 height=128></img>")
+            .arg(QUrl::fromLocalFile(ui->iconsView->currentFilePath())
+                     .toString()));
+  } else {
+    ui->contentView->setText(readAll(ui->iconsView->currentFilePath()));
+  }
+}
+
+void MainWindow::on_iconsDirCombo_currentIndexChanged(int index) {
+  ui->iconsView->setIconsDir(ui->iconsDirCombo->currentText());
+  const QVector<QColor> colors =
+      ui->iconsDirCombo->currentData().value<QVector<QColor>>();
+
+  ui->colorTable->setRowCount(0);
+  for (const auto &color : colors) {
+    const int row = ui->colorTable->rowCount();
+    ui->colorTable->setRowCount(row + 1);
+    ui->colorTable->setCellWidget(row, 0, new ColorEdit(color, true, this));
+    ui->colorTable->setCellWidget(row, 1, new ColorEdit(QColor{}, false, this));
+  }
 }

@@ -17,16 +17,18 @@ public:
   ~MainWindow();
 
 private slots:
-  void on_new_row_clicked();
-
   void on_applyColors_clicked();
 
   void on_iconsView_currentItemChanged(QListWidgetItem *, QListWidgetItem *);
 
-  void on_pushButton_clicked();
-
   void on_iconsView_loadingChanged();
+
+  void on_showPicture_toggled(bool checked);
+
+  void on_iconsDirCombo_currentIndexChanged(int index);
 
 private:
   Ui::MainWindow *ui;
+
+  void setPreview();
 };
