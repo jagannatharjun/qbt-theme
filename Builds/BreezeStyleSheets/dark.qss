@@ -1602,7 +1602,7 @@ QProgressBar:horizontal
     border: 0.1ex solid #31363b;
     border-radius: 0.3ex;
     height: 0.5ex;
-    text-align: right;
+    text-align: center;
     margin-top: 0.5ex;
     margin-bottom: 0.5ex;
     margin-right: 5ex;
