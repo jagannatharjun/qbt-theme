@@ -648,6 +648,9 @@ QRadioButton::indicator {
 
 QTreeView::indicator {
   background: #444; }
+  
+QProgressBar:horizontal {
+  text-align: center; }
 
 QRadioButton::indicator:disabled {
   background-color: #282828;
