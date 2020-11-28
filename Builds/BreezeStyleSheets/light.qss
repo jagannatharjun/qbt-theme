@@ -1533,7 +1533,6 @@ QProgressBar:horizontal
     text-align: center;
     margin-top: 0.5ex;
     margin-bottom: 0.5ex;
-    margin-right: 5ex;
     padding: 0px;
 }
 
