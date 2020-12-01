@@ -22,3 +22,9 @@
 
 // Add or import your own custom QSS below
 
+QProgressBar:horizontal {
+    border: 1px solid palette(dark);
+	text-align: right;
+    margin-right: 3.2em;
+}
+

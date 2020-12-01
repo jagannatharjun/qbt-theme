@@ -648,7 +648,7 @@ QRadioButton::indicator {
 
 QTreeView::indicator {
   background: #FFF; }
-  
+
 QProgressBar:horizontal {
   text-align: center; }
 
@@ -897,3 +897,8 @@ AboutDialog QTextEdit {
 
 ViewCert {
   min-height: 600px; }
+
+QProgressBar:horizontal {
+  border: 1px solid palette(dark);
+  text-align: right;
+  margin-right: 3.2em; }
