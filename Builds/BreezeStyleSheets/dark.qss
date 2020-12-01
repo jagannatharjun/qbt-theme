@@ -1603,14 +1603,12 @@ QProgressBar:horizontal
     border-radius: 0.3ex;
     height: 0.5ex;
     text-align: center;
-    margin-top: 0.5ex;
-    margin-bottom: 0.5ex;
     padding: 0px;
 }
 
 QProgressBar::chunk:horizontal
 {
-    background-color: #3daee9;
+    background-color: #4285f4;
     border: 0.1ex transparent;
     border-radius: 0.3ex;
 }
