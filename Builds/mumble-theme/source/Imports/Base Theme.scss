@@ -887,6 +887,10 @@ QTreeView::indicator
 	background:$button-bg;
 }
 
+QProgressBar:horizontal {
+	text-align: center;
+}
+
 QRadioButton::indicator:disabled
 {
 	background-color:$control-disabled;
