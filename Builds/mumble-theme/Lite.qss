@@ -9,11 +9,11 @@
  *
  * Licensed under The Do What The Fuck You Want To Public License (WTFPL)
  */
-/*
- * YOU SHOULD NOT MODIFY THIS FILE
- * Edit the files in the "source" folder instead.
- * See project README
- *
+/*
+ * YOU SHOULD NOT MODIFY THIS FILE
+ * Edit the files in the "source" folder instead.
+ * See project README
+ *
  */
 QTabWidget QListView::item {
   padding: 0px; }
@@ -651,6 +651,9 @@ QTreeView::indicator {
 
 QProgressBar:horizontal {
   text-align: center; }
+
+QProgressBar {
+  font: bold italic large "Times New Roman"; }
 
 QRadioButton::indicator:disabled {
   background-color: #F2F2F2;

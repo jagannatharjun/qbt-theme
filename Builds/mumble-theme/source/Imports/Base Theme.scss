@@ -887,8 +887,14 @@ QTreeView::indicator
 	background:$button-bg;
 }
 
-QProgressBar:horizontal {
+QProgressBar:horizontal 
+{
 	text-align: center;
+}
+
+QProgressBar 
+{
+    font: bold italic large "Times New Roman";
 }
 
 QRadioButton::indicator:disabled
