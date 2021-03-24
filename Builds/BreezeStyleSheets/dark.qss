@@ -1596,21 +1596,9 @@ QSplitter::handle:vertical
     height: 0.1ex;
 }
 
-QProgressBar:horizontal
+QProgressBar
 {
-    background-color: #626568;
-    border: 0.1ex solid #31363b;
-    border-radius: 0.3ex;
-    height: 0.5ex;
     text-align: center;
-    padding: 0px;
-}
-
-QProgressBar::chunk:horizontal
-{
-    background-color: #4285f4;
-    border: 0.1ex transparent;
-    border-radius: 0.3ex;
 }
 
 QSpinBox,

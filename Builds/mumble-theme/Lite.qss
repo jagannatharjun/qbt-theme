@@ -900,13 +900,3 @@ AboutDialog QTextEdit {
 
 ViewCert {
   min-height: 600px; }
-
-QProgressBar {
-  border-radius: 2px;
-  border: 1px solid palette(midlight);
-  background-color: palette(alternate-base);
-  text-align: center; }
-
-QProgressBar::chunk {
-  border-radius: 2px;
-  background-color: #1E88E5; }
