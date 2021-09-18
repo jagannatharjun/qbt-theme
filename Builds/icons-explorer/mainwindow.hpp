@@ -8,9 +8,12 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+class StyleSheetLoader;
+
 class MainWindow : public QMainWindow
 {
   Q_OBJECT
+    Q_DISABLE_COPY_MOVE(MainWindow);
 
 public:
   MainWindow(QWidget *parent = nullptr);
@@ -29,6 +32,6 @@ private slots:
 
 private:
   Ui::MainWindow *ui;
-
+  std::unique_ptr<StyleSheetLoader> m_styleSheetLoader;
   void setPreview();
 };

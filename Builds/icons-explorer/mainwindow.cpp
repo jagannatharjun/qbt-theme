@@ -6,8 +6,36 @@
 #include <QLineEdit>
 #include <QPainter>
 #include <QPixmap>
+#include <QFileSystemWatcher>
 
 QByteArray readAll(const QString &filePath);
+
+class StyleSheetLoader
+{
+public:
+    void setStyleSheetFileName(const QString &fileName)
+    {
+        auto loadStyleSheet = [](const QString &path)
+        {
+            qDebug("loading style sheet");
+            qApp->setStyleSheet("");
+            QFile f(path);
+            if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+              return;
+            qApp->setStyleSheet(f.readAll());
+
+        };
+
+        m_fileSystemWatcher.reset(new QFileSystemWatcher());
+        m_fileSystemWatcher->addPath(fileName);
+
+        QObject::connect(m_fileSystemWatcher.get(), &QFileSystemWatcher::fileChanged, qApp, loadStyleSheet);
+        loadStyleSheet(fileName);
+    }
+
+private:
+    std::unique_ptr<QFileSystemWatcher> m_fileSystemWatcher {};
+};
 
 class ColorEdit : public QLineEdit {
 public:
@@ -20,11 +48,12 @@ public:
       if (!color.isValid())
         setStyleSheet("color: red");
       else
-        setPalette(QPalette());
+        setStyleSheet("");
+
       m_colorPixmap.fill(color);
     });
-    if (initialColor.isValid())
-      setText(initialColor.name());
+
+    setText(initialColor.name());
 
     if (!readOnly) {
       QAction *colorDiag =
@@ -75,10 +104,9 @@ MainWindow::MainWindow(QWidget *parent)
     const QString styleSheet = QFileDialog::getOpenFileName(this, "Open StyleSheet", {}, "*.qss");
     if (styleSheet.isEmpty())
       return;
-    QFile f(styleSheet);
-    if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
-      return;
-    qApp->setStyleSheet(f.readAll());
+    if (!m_styleSheetLoader)
+        m_styleSheetLoader = std::make_unique<StyleSheetLoader>();
+    m_styleSheetLoader->setStyleSheetFileName(styleSheet);
   });
 }
 
@@ -118,6 +146,8 @@ void MainWindow::setPreview() {
         QString("<img src=\"%1\" alt='failure' width=128 height=128></img>")
             .arg(QUrl::fromLocalFile(ui->iconsView->currentFilePath())
                      .toString()));
+    ui->previewButton->setIcon(QIcon(ui->iconsView->currentFilePath()));
+    ui->previewToolButton->setIcon(QIcon(ui->iconsView->currentFilePath()));
   } else {
     ui->contentView->setText(readAll(ui->iconsView->currentFilePath()));
   }
