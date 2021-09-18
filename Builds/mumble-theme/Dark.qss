@@ -33,7 +33,7 @@ QObject::section {
   padding: 0;
   outline: 0;
   border: 0;
-  selection-background-color: #298ce1;
+  selection-background-color: #0066b2;
   selection-color: #FFF;
   alternate-background-color: #292929;
   color: #eee;
@@ -99,11 +99,11 @@ QToolButton:on {
   border: 1px solid #444; }
 
 QToolButton:hover {
-  background-color: #298ce1;
+  background-color: #0066b2;
   border: 1px solid #1979ca; }
 
 QToolButton:pressed {
-  background-color: #298ce1; }
+  background-color: #0066b2; }
 
 QToolBar::separator {
   background: #555;
@@ -136,7 +136,7 @@ QMenuBar::item {
   padding: 4px 12px; }
 
 QMenuBar::item:selected {
-  background: #298ce1;
+  background: #0066b2;
   color: #FFF; }
 
 QMenuBar::item:pressed {
@@ -194,8 +194,8 @@ QPushButton:focus {
 
 QPushButton:pressed,
 QPushButton:pressed:focus {
-  background-color: #298ce1;
-  border-color: #298ce1;
+  background-color: #0066b2;
+  border-color: #0066b2;
   color: #FFF; }
 
 QGroupBox,
