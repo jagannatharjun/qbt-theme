@@ -327,16 +327,14 @@ QHeaderView::section {
   background-color: #FDFDFD;
   border-right: 1px solid #D2D2D2;
   color: #111;
-  padding: 4px;
-  padding-left: 8px;
-  padding-right: 20px;
+  padding: 0.3em;
   border-radius: 0; }
 
 QHeaderView::down-arrow,
 QHeaderView::up-arrow {
   margin: 1px;
   top: 1px;
-  right: 5px;
+  right: 2px;
   width: 14px; }
 
 QHeaderView::down-arrow {
