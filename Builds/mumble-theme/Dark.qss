@@ -151,8 +151,7 @@ QMenu {
 QMenu::item {
   border: 1px solid transparent;
   color: #d8d8d8;
-  padding: 5px 16px;
-  padding-left: 25px;
+  padding: 5px 8px;
   border-radius: 2px; }
 
 QMenu::item:selected {
@@ -675,10 +674,10 @@ QSlider::groove {
   border-radius: 2px; }
 
 QSlider::groove:horizontal {
-  height: 0.8em; }
+  height: 0.4em; }
 
 QSlider::groove:vertical {
-  width: 0.8em; }
+  width: 0.4em; }
 
 QSlider::groove:disabled,
 QSlider::sub-page:disabled {
@@ -698,11 +697,11 @@ QSlider::handle {
 
 QSlider::handle:horizontal {
   margin: -5px -1px;
-  width: 4.5em; }
+  width: 1.2em; }
 
 QSlider::handle:vertical {
   margin: -1px -5px;
-  height: 4.5em; }
+  height: 1.2em; }
 
 QSlider::handle:focus {
   background-color: #6d96ba;
