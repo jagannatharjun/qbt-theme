@@ -1,5 +1,5 @@
 set SCRIPT_DIR=mumble-theme
-set PATH=%PATH%;C:\Users\Prince\Downloads\Compressed\qtsass_0.2.2_win64;
+set PATH=%PATH%;%UserProfile%\Downloads\Compressed\qtsass_0.2.2_win64;
 pushd %SCRIPT_DIR%\source
 qtsass -o ../Lite.qss Lite.scss
 popd
