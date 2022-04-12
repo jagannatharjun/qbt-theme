@@ -25,3 +25,11 @@ Icons used in dark themes are from nowshed-imran. They are meant to be icons for
 ## How to create your own theme file?
 This repo also contains different tool to create your own qbittorrent theme files.
 You can check the source of above style in `Builds` folder
+
+[qtsass](https://github.com/spyder-ide/qtsass) is a dependency of the scripts. If you don't have it, here's how to download it:
+### Windows:
+Download from [here](https://github.com/spyder-ide/qtsass/releases/download/0.2.2/qtsass_0.2.2_win64.zip) and extract the zip to a directory in the PATH variable, or into the directory %UserProfile%\Downloads\Compressed\qtsass_0.2.2_win64.
+### Linux:
+It can be installed via [Pip](https://pypi.org/project/pip/) using this command:  
+`pip install git+https://github.com/spyder-ide/qtsass`  
+This installs the git version of qtsass (stable release is currently broken).
