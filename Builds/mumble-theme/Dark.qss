@@ -15,12 +15,21 @@
  * See project README
  *
  */
+ 
 QTabWidget QListView::item {
-  padding: 0px; }
+  padding: 0px; 
+}
 
 QTabWidget QListView QLabel {
   padding: -2px;
-  font-size: 1.1em; }
+  font-size: 1.1em; 
+}
+ 
+/* issue: https://github.com/jagannatharjun/qbt-theme/issues/75 */   
+QWidget {
+  background-color: #292929; /* whole outer */  
+}
+/* end */
 
 QObject,
 QObject::separator,
