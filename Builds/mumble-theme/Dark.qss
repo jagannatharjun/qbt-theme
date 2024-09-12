@@ -160,8 +160,7 @@ QMenu {
 QMenu::item {
   border: 1px solid transparent;
   color: #d8d8d8;
-  padding: 5px 16px;
-  padding-left: 25px;
+  padding: 5px 8px;
   border-radius: 2px; }
 
 QMenu::item:selected {
@@ -180,6 +179,11 @@ QMenu::indicator {
   padding-top: 2px;
   height: 25px;
   width: 25px; }
+
+QMenu::icon {
+  margin: 0px;
+  padding-left: 8px;
+}
 
 QPushButton {
   background-color: #444;
@@ -336,16 +340,14 @@ QHeaderView::section {
   background-color: #2d2d2d;
   border-right: 1px solid #1c1c1c;
   color: #d8d8d8;
-  padding: 4px;
-  padding-left: 8px;
-  padding-right: 20px;
+  padding: 0.3em;
   border-radius: 0; }
 
 QHeaderView::down-arrow,
 QHeaderView::up-arrow {
   margin: 1px;
   top: 1px;
-  right: 5px;
+  right: 2px;
   width: 14px; }
 
 QHeaderView::down-arrow {
@@ -681,10 +683,10 @@ QSlider::groove {
   border-radius: 2px; }
 
 QSlider::groove:horizontal {
-  height: 0.8em; }
+  height: 0.4em; }
 
 QSlider::groove:vertical {
-  width: 0.8em; }
+  width: 0.4em; }
 
 QSlider::groove:disabled,
 QSlider::sub-page:disabled {
@@ -704,11 +706,11 @@ QSlider::handle {
 
 QSlider::handle:horizontal {
   margin: -5px -1px;
-  width: 4.5em; }
+  width: 1.2em; }
 
 QSlider::handle:vertical {
   margin: -1px -5px;
-  height: 4.5em; }
+  height: 1.2em; }
 
 QSlider::handle:focus {
   background-color: #6d96ba;

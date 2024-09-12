@@ -196,8 +196,7 @@ QMenu::item
 {
 	border:1px solid transparent;
 	color:$sub-text;
-	padding:$base-padding + 1 $base-padding * 4;
-	padding-left:25px;
+	padding:$base-padding + 1 $base-padding * 2;
 	border-radius:$base-border-radius;
 }
 
@@ -444,9 +443,7 @@ QHeaderView::section
 	background-color:$median-bg;
 	border-right:1px solid $base-border;
 	color:$sub-text;
-	padding:$base-padding;
-	padding-left:$base-padding * 2;
-	padding-right: 20px;
+	padding:0.3em;
 	border-radius:0;
 }
 
@@ -455,7 +452,7 @@ QHeaderView::up-arrow
 {
 	margin:1px;
 	top:1px;
-	right:5px;
+	right:2px;
 	width:14px;
 }
 
@@ -849,6 +846,12 @@ QMenu::indicator
 	left: 6px;
 }
 
+QMenu::icon
+{
+	margin: 0px;
+	padding-left: 8px;
+}
+
 QCheckBox::indicator:checked,
 QMenu::indicator:checked,
 QTreeView::indicator:checked,
@@ -924,12 +927,12 @@ QSlider::groove
 
 QSlider::groove:horizontal
 {
-	height:0.8em;
+	height:0.4em;
 }
 
 QSlider::groove:vertical
 {
-	width:0.8em;
+	width:0.4em;
 }
 
 QSlider::groove:disabled,
@@ -958,13 +961,13 @@ QSlider::handle
 QSlider::handle:horizontal
 {
 	margin:-5px -1px;
-	width:4.5em;
+	width:1.2em;
 }
 
 QSlider::handle:vertical
 {
 	margin:-1px -5px;
-	height:4.5em;
+	height:1.2em;
 }
 
 QSlider::handle:focus
