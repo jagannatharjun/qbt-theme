@@ -20,7 +20,7 @@
 // Import base theme CSS
 @import 'Imports/Base Theme';
 
-
+ 
 TransferListWidget {
 	qproperty-downloadingStateForeground: rgb(50,205,50);
 	qproperty-forcedDownloadingStateForeground: rgb(50,205,50);
@@ -44,3 +44,10 @@ TransferListWidget {
 }
 
 // Add or import your own custom QSS below
+
+/* issue: https://github.com/jagannatharjun/qbt-theme/issues/75 */   
+QWidget {
+    background-color: #212121;
+  }
+/* end */
+

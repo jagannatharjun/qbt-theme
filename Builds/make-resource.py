@@ -2,7 +2,6 @@ import subprocess
 import glob
 import argparse
 import os.path
-import sys
 import fnmatch
 import re
 
@@ -38,7 +37,7 @@ if args.findFiles:
     print('finding files')
     args.files = []
     stylesheet = open(os.path.join(args.baseDir, args.style)).read()
-    for f in re.findall(':\/uitheme\/(.*)\)', stylesheet):
+    for f in re.findall(r':\/uitheme\/(.*)\)', stylesheet):
         args.files.append(f)
     
 config_file = None

@@ -1,6 +1,14 @@
-set SCRIPT_DIR=mumble-theme
-set PATH=%PATH%;C:\Users\%USERNAME%\Downloads\Compressed\qtsass_0.2.2_win64;
-pushd %SCRIPT_DIR%\source
-qtsass -o ../Lite.qss Lite.scss
+@echo off
+
+set ThemeDir=mumble-theme
+set ThemeName=mumble-lite
+
+pushd %ThemeDir%\source
+    qtsass -o ../Lite.qss Lite.scss
 popd
-make-resource.py -base-dir %SCRIPT_DIR%\ -find-files -output mumble-lite -style lite.qss 
+
+python make-resource.py -base-dir %ThemeDir% ^
+                        -find-files ^
+                        -output %ThemeName% ^
+                        -style lite.qss 
+

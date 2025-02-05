@@ -1,3 +1,12 @@
-set SCRIPT_DIR=BreezeStyleSheets
-set ICONS_DIR=icons/nowshed
-make-resource.py -base-dir %SCRIPT_DIR%\ -find-files -output breeze-dark  -config dark-config.json -icons-dir %ICONS_DIR% -style dark.qss 
+@echo off
+
+set ThemeDir=BreezeStyleSheets
+set IconsDir=icons/nowshed
+set ThemeName=breeze-dark
+
+python make-resource.py -base-dir %ThemeDir% ^
+                        -find-files ^
+                        -output %ThemeName% ^
+                        -config dark-config.json ^
+                        -icons-dir %IconsDir% ^
+                        -style dark.qss 
