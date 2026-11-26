@@ -15,7 +15,7 @@
 ## Breeze-Dark.qbtheme
 ![mumble-lite.qbtheme](screenshots/breeze-dark.JPG)
 
-This repo contains different stylesheed edited to run with qbittorrent's style system  
+This repo contains different stylesheets edited to run with qbittorrent's style system  
 DarkStyleSheet theme is based on https://github.com/ColinDuquesnoy/QDarkStyleSheet  
 Mumble themes are based on https://github.com/mumble-voip/mumble-theme  
 Breeze themes are based on https://github.com/Alexhuszagh/BreezeStyleSheets  
